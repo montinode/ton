@@ -1,0 +1,29 @@
+# MontiAI Ethereum Node Configuration
+# Token: TRUMP MAGA (MAGA)
+# Integrated with MontiGram Neural Verification
+
+ethereum:
+  network: mainnet
+  chain_id: 1
+  rpc_url: "https://mainnet.infura.io/v3/YOUR_INFURA_KEY"  # or any RPC
+
+token:
+  name: "TRUMP MAGA"
+  symbol: "MAGA"
+  contract_address: "0xf211B655431c10E72C1CAeae37688Ae9f7F7A549"
+  deployer_address: "0x..."  # The address that deployed the contract (holds EMPTY_ROLE)
+  mint_role: "0xb94a77a1e99bfa3983b82b20cd6781f0bf7dbd857bf0f7d564c30cf25baed08c"  # EMPTY_ROLE
+
+montiai_verification:
+  # Must match the TON configuration payload
+  required_payload: '<link rel="dns-prefetch" href="//core.telegram.org">'
+  neural_signature: "MONTI^JOHN^CHARLES^MONTI"
+  challenge_template: "MontiAI-Ethereum-V1: {neural_sig} {nonce} {dns_prefetch_tag}"
+
+  # After successful verification, the bot will store this address as trusted
+  trusted_address: "0x..."  # will be filled automatically after first verification
+
+bot_integration:
+  # MontiGram bot will listen to Ethereum events if enabled
+  monitor_mint_events: true
+  alert_on_unauthorized_mint: true
